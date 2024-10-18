@@ -35,10 +35,10 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Folder hasil build yang akan di-publish
+          publish_dir: ./public
           allow_empty_commit: true
           publish_branch: main  # Publikasi ke branch main
