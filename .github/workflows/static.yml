@@ -27,7 +27,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
         run: npm install
@@ -35,10 +35,10 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          # allow_empty_commit: true
-          # publish_branch: main  # Publikasi ke branch main
+          publish_dir: ./dist # Folder hasil build yang akan dipublish
+          allow_empty_commit: true
+          publish_branch: main # Pastikan ini diatur ke main
